@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium-Style Article</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">Medium</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <article class="article">
+            <div class="article-header">
+                <h1 class="title">The Art of Minimalist Web Design: Less is More in the Digital Age</h1>
+                <p class="subtitle">How embracing simplicity can create more engaging and effective user experiences</p>
+                
+                <div class="article-meta">
+                    <div class="author">
+                        <div class="author-avatar">
+                            <span>JD</span>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Jane Doe</div>
+                            <div class="publish-info">
+                                <span class="date">Sep 8, 2025</span>
+                                <span class="separator">·</span>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <figure class="featured-image">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=600&fit=crop&auto=format" alt="Clean, minimalist workspace with a laptop and plant" />
+            </figure>
+
+            <div class="article-content">
+                <p class="paragraph">
+                    In an era where digital interfaces compete fiercely for user attention, the philosophy of "less is more" has never been more relevant. Minimalist web design isn't just an aesthetic choice—it's a strategic approach that prioritizes user experience, reduces cognitive load, and creates lasting impressions through thoughtful simplicity.
+                </p>
+
+                <p class="paragraph">
+                    The power of minimalist design lies in its ability to eliminate distractions and guide users toward what truly matters. By removing unnecessary elements, we create space for content to breathe and users to focus. This approach has been championed by companies like Apple, Google, and Medium itself, proving that simplicity can be both beautiful and highly functional.
+                </p>
+
+                <p class="paragraph">
+                    Implementing minimalist design requires discipline and a deep understanding of user needs. Every element must earn its place on the page. Typography becomes more important when it's one of the few visual elements present. White space transforms from empty area to active design component. Color choices carry more weight when the palette is restrained. The result is an interface that feels intentional, professional, and refreshingly clear.
+                </p>
+            </div>
+
+            <footer class="article-footer">
+                <div class="tags">
+                    <span class="tag">Web Design</span>
+                    <span class="tag">Minimalism</span>
+                    <span class="tag">UX Design</span>
+                    <span class="tag">User Experience</span>
+                </div>
+                
+                <div class="engagement">
+                    <button class="clap-button" aria-label="Clap for this article">
+                        <span class="clap-icon">👏</span>
+                        <span class="clap-count">47</span>
+                    </button>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- 
+FILE STRUCTURE:
+/
+├── index.html (this file)
+├── styles.css
+├── script.js
+└── images/
+    └── (place your images here)
+
+CSS FILE (styles.css):
+-->
+<style>
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+/* CSS Custom Properties */
+:root {
+  /* Light Theme */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #242424;
+  --text-secondary: #6b6b6b;
+  --text-tertiary: #a8a8a8;
+  --border-light: #e6e6e6;
+  --accent-green: #1a8917;
+  --accent-hover: #156312;
+  
+  /* Typography */
+  --font-serif: 'Lora', serif;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Layout */
+  --max-width: 680px;
+  --header-height: 60px;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #e6e6e6;
+  --text-secondary: #b3b3b3;
+  --text-tertiary: #6b6b6b;
+  --border-light: #2a2a2a;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-top: var(--header-height);
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  height: 100%;
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Main Content */
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.article {
+  padding: var(--space-2xl) 0;
+}
+
+/* Article Header */
+.article-header {
+  margin-bottom: var(--space-3xl);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2xl);
+  font-weight: 400;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.author-avatar {
+  width: 44px;
+  height: 44px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.author-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.publish-info {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.separator {
+  margin: 0 var(--space-sm);
+}
+
+/* Featured Image */
+.featured-image {
+  margin: var(--space-2xl) 0 var(--space-3xl);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Article Content */
+.article-content {
+  margin-bottom: var(--space-3xl);
+}
+
+.paragraph {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+  color: var(--text-primary);
+}
+
+.paragraph:first-child::first-letter {
+  font-size: 3.5rem;
+  line-height: 1;
+  float: left;
+  margin: 0 0.1em 0 0;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+/* Article Footer */
+.article-footer {
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--border-light);
+}
+
+.engagement {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.clap-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: none;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.clap-button:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  transform: translateY(-1px);
+}
+
+.clap-icon {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    padding: 0 var(--space-md);
+  }
+  
+  .header-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .paragraph {
+    font-size: 1.15rem;
+  }
+  
+  .paragraph:first-child::first-letter {
+    font-size: 2.8rem;
+  }
+  
+  .article-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0 var(--space-md);
+  }
+  
+  .article {
+    padding: var(--space-xl) 0;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+  }
+  
+  .author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+  
+  .author-avatar {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus,
+.clap-button:focus,
+.tag:focus {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--accent-green);
+  color: white;
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.article {
+  animation: fadeIn 0.8s ease-out;
+}
+</style>
+
+<!-- 
+JAVASCRIPT FILE (script.js):
+-->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const body = document.body;
+    
+    // Get saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
+    }
+    
+    // Clap Button Animation
+    const clapButton = document.querySelector('.clap-button');
+    const clapCount = document.querySelector('.clap-count');
+    let currentClaps = parseInt(clapCount.textContent) || 0;
+    
+    clapButton.addEventListener('click', function() {
+        currentClaps++;
+        clapCount.textContent = currentClaps;
+        
+        // Add animation class
+        clapButton.style.transform = 'scale(1.1)';
+        
+        // Reset animation
+        setTimeout(() => {
+            clapButton.style.transform = 'scale(1)';
+        }, 150);
+        
+        // Save claps to localStorage
+        localStorage.setItem('article-claps', currentClaps);
+        
+        // Create floating clap animation
+        createClapAnimation();
+    });
+    
+    // Load saved claps
+    const savedClaps = localStorage.getItem('article-claps');
+    if (savedClaps) {
+        currentClaps = parseInt(savedClaps);
+        clapCount.textContent = currentClaps;
+    }
+    
+    function createClapAnimation() {
+        const clapEmoji = document.createElement('div');
+        clapEmoji.textContent = '👏';
+        clapEmoji.style.cssText = `
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.5rem;
+            z-index: 1000;
+            animation: clapFloat 1s ease-out forwards;
+        `;
+        
+        const rect = clapButton.getBoundingClientRect();
+        clapEmoji.style.left = rect.left + rect.width / 2 + 'px';
+        clapEmoji.style.top = rect.top + 'px';
+        
+        document.body.appendChild(clapEmoji);
+        
+        setTimeout(() => {
+            clapEmoji.remove();
+        }, 1000);
+    }
+    
+    // Add CSS for clap animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes clapFloat {
+            0% { 
+                transform: translateY(0) scale(1); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-50px) scale(1.2); 
+                opacity: 0; 
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Reading Progress Indicator
+    function updateReadingProgress() {
+        const article = document.querySelector('.article-content');
+        const scrolled = window.scrollY;
+        const articleTop = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        
+        const progress = Math.max(0, Math.min(1, 
+            (scrolled - articleTop + windowHeight * 0.1) / (articleHeight - windowHeight * 0.2)
+        ));
+        
+        // Update a CSS custom property for potential progress bar
+        document.documentElement.style.setProperty('--reading-progress', progress);
+    }
+    
+    window.addEventListener('scroll', updateReadingProgress);
+    updateReadingProgress();
+    
+    // Smooth tag interactions
+    document.querySelectorAll('.tag').forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Console messages for developers
+    console.log('📖 Medium-style Article Template');
+    console.log('Current theme:', savedTheme);
+    console.log('Article claps:', currentClaps);
+    console.log('');
+    console.log('This template features:');
+    console.log('- Clean, Medium-inspired design');
+    console.log('- Dark/light theme switching');
+    console.log('- Interactive clap button');
+    console.log('- Responsive typography');
+    console.log('- Accessible navigation');
+    console.log('- Smooth animations');
+});
+
+// Export utility functions
+window.mediumTemplate = {
+    resetClaps: function() {
+        localStorage.removeItem('article-claps');
+        document.querySelector('.clap-count').textContent = '47';
+        console.log('Clap count reset');
+    },
+    
+    getTheme: function() {
+        return document.body.getAttribute('data-theme');
+    },
+    
+    setTheme: function(theme) {
+        if (['light', 'dark'].includes(theme)) {
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            console.log(`Theme set to: ${theme}`);
+        }
+    }
+};
+</script>
