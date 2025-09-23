@@ -369,3 +369,8 @@ html {
 .article {
   animation: fadeIn 0.8s ease-out;
 }
+img {
+    max-width: 60%;
+    height: auto;
+    display: block;
+}
