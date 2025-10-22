@@ -368,9 +368,9 @@ main.two-column section {
 /* === THREE COLUMN LAYOUT === */
 main.three-column {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr ;
   gap: 2rem;
-  max-width: 1400px;
+  max-width: 2000px;
 }
 
 main.three-column section {
@@ -519,4 +519,24 @@ main.photo-grid .photo-caption {
 }
 entry-2.html {
   color: #59b1dd;
+}
+body {
+  background: linear-gradient(to bottom right, #b0e5ff, #ffd2e8);
+  color: white;
+}
+body {
+  background-size: cover;       
+  background-position: center; 
+  background-repeat: no-repeat; 
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: rgba(0,0,0,0.3); /
+  backdrop-filter: blur(2px);   /
+  z-index: -1;
 }
