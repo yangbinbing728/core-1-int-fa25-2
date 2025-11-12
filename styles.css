@@ -740,11 +740,179 @@ h1 {
   margin: 1.5rem auto;
   font-size: 1rem;
   color: #333;
-  background: rgba(255, 255, 255, 0.6); /* 半透明白色背景 */
+  background: rgba(255, 255, 255, 0.6); 
   border-radius: 15px;
   padding: 1.5rem;
   line-height: 1.6;
-  backdrop-filter: blur(6px); /* 轻微磨砂效果 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 柔和阴影 */
+  backdrop-filter: blur(6px); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
+body {
+  background: linear-gradient(180deg, #101020 0%, #1b0034 100%);
+  color: white;
+  font-family: 'Baloo 2', cursive;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  color: #ffb6f9;
+  text-shadow: 0 0 10px #ff6de6, 0 0 20px #ff9bf7;
+  margin-bottom: 10px;
+}
+
+.author {
+  font-size: 1.3rem;
+  color: #d8cfff;
+  margin: 0;
+
+}
+
+h1 {
+  font-size: 3rem;
+  color: #ffb6f9;
+  text-shadow: 0 0 10px #ff6de6, 0 0 20px #ffb6f9;
+  margin-bottom: 0;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #9a9aff;
+  margin-top: 5px;
+}
+
+.intro {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  font-size: 1.1rem;
+  color: #eee;
+  line-height: 1.6;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 20px 30px;
+  box-shadow: 0 0 15px rgba(255, 200, 255, 0.1);
+}
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.app-icon img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 200, 255, 0.3);
+  margin-bottom: 10px;
+}
+
+.app-icon span {
+  font-size: 1.1rem;
+  color: #faaefa;
+}
+
+.app-icon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background: black;
+  overflow-x: hidden;
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+  padding: 100px 20px 60px;
+  font-family: 'Audiowide', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #8ab4f8, #f4a3ff, #9df6d2);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff5; }
+  to { text-shadow: 0 0 30px #fff; }
+}
+
+.subtitle {
+  color: #ddd;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  line-height: 1.7;
+}
+
+section {
+  margin: 120px 0;
+  text-align: center;
+}
+
+section img {
+  width: 70%;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+  margin-top: 30px;
+  transition: transform 0.5s;
+}
+
+section img:hover {
+  transform: scale(1.03);
+}
+
+.back-btn {
+  display: block;
+  margin: 80px auto;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff4;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
