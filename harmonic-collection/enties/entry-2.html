@@ -1,75 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Luminous Wheel Zone</title>
-  <link rel="stylesheet" href="../../styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Luminous Wheel Zone</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #ffb6c1, #ffc0cb, #ffe4e1);
+  color: #fff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+  margin-top: 40px;
+  text-shadow: 0 0 10px #fff1cc, 0 0 20px #ffb6c1;
+}
+
+.subtitle {
+  font-size: 10px;
+  margin-top: 12px;
+  opacity: 0.85;
+}
+
+main {
+  width: 80%;
+  margin: 40px auto;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 0 25px rgba(255, 140, 180, 0.35);
+}
+
+section img {
+  width: 80%;
+  max-width: 550px;
+  border-radius: 22px;
+  box-shadow: 0 0 25px rgba(255, 200, 220, 0.6);
+  margin-top: 25px;
+}
+
+/* 手风琴样式 */
+.accordion-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease; 
+}
+
+.accordion.active .accordion-content { 
+  max-height: 800px; 
+}
+
+.accordion-title { 
+  cursor:pointer; 
+  position: relative; 
+  padding-right:20px; 
+  margin-bottom:10px;
+  text-align: left;
+}
+
+.accordion-title::after { 
+  content:"▶"; 
+  position:absolute; 
+  right:0; 
+  top:0; 
+  font-size:12px; 
+  transition: transform 0.3s ease; 
+}
+
+.accordion.active .accordion-title::after { 
+  content:"▼"; 
+}
+
+.back-btn { 
+  margin:50px 0; 
+  padding:14px 26px; 
+  background: linear-gradient(45deg,#ffb6c1,#ff69b4); 
+  border:none; 
+  color:#fff; 
+  border-radius:40px; 
+  cursor:pointer; 
+  box-shadow:0 0 20px rgba(255,120,180,0.7); 
+  transition:0.3s; 
+  font-family:'Press Start 2P',cursive;
+}
+
+.back-btn:hover { 
+  transform: scale(1.12); 
+  box-shadow:0 0 35px rgba(255,160,200,0.9);
+}
+</style>
 </head>
-
 <body>
-  <main class="three-column">
 
-  
-    <section>
-      <h1>The Luminous Wheel Zone</h1>
-      <p>
-        Welcome to the calm heart of the park — a space where movement turns into light.
-        The Luminous Wheel Zone is designed for those who seek peace after the thrill. 
-        The entire area glows in gentle colors that change with time, reflecting on water and glass. 
-        Soft music plays in the background, and the air feels lighter here, as if everything is floating. 
-        Visitors come not only to ride the wheel, but to watch it — to see how light can slow down time.
-      </p>
-      <img src="../img/-5.jpg" alt="The Luminous Wheel Zone">
-      <small>
-        <p>
-          Drift through the sky like a star in motion.
-          The Celestial Orbit takes you high above the park, inside crystal cabins that glow with soft blue light. 
-          Below, the world becomes a sea of color and sound, fading gently as you rise. 
-          It’s not just a Ferris wheel — it’s a journey into stillness, where you can touch the horizon and feel the sky breathe with you.
-        </p>
-      </small>
-    </section>
+<header>
+  <h1>The Luminous Wheel Zone</h1>
+  <p class="subtitle">A dreamlike Ferris wheel experience</p>
+</header>
 
-    <!-- Section 2: Appearance and Structure -->
-    <section>
-      <h3>Appearance and Structure</h3>
-      <p>
-        The Luminous Wheel stands quietly at the edge of the park, taller than any other structure. 
-        Its frame isn’t made of ordinary metal — it’s a circle of light, woven from hundreds of transparent beams that shimmer like glass. 
-        In the sunlight, it almost disappears into the sky; at night, it becomes a glowing halo suspended above the ground. 
-        The spokes stretch out in smooth, geometric lines, forming a perfect symmetry that looks both delicate and infinite.
-      </p>
-      <img src="../img/324fda25f924fb59e93aebae645013d1.jpg" alt="The Wheel Structure">
-    </section>
+<main>
+<section class="intro">
+  <section>
+  <small>
+    Drift through the sky like a star in motion. The Celestial Orbit takes you high above the park inside crystal cabins glowing with soft blue light.
+  </small>
+</section>
 
-    <!-- Section 3: Cabin Design -->
-    <section>
-      <h3>Cabin Design</h3>
-      <p>
-        Inside the cabins, the seats curve like petals around a glowing center. 
-        Visitors sit facing outward, surrounded by 360° transparent walls. 
-        A soft hum fills the space — the sound of quiet engines and distant music. 
-        The cabin’s light changes with height: cool blue when rising, warm gold when descending. 
-        From the top, you can see the entire park shining below like a constellation of color. 
-        For a moment, it feels like floating between earth and stars.
-      </p>
-    </section>
 
-    <!-- Section 4: Environment and Atmosphere -->
-    <section>
-      <h3>Environment and Atmosphere</h3>
-      <p>
-        The base of the wheel is surrounded by a shallow reflecting pool. 
-        The structure’s lights ripple on the water’s surface, breaking and reforming with every breeze. 
-        Low mist drifts across the pool, and stepping stones lead to the boarding platform, 
-        which glows faintly like a path of starlight. 
-        Soft instrumental music plays in the background — not loud, but enough to make the air feel alive.
-      </p>
-    </section>
+<section class="accordion">
+  <h2 class="accordion-title">Appearance and Structure</h2>
+  <div class="accordion-content">
+    <p>
+      The Luminous Wheel stands quietly at the edge of the park, taller than any other structure.
+      Its frame isn’t made of ordinary metal — it’s a circle of light, woven from hundreds of transparent beams.
+    </p>
+    <img src="../img/ -12.jpg" alt="The Wheel Structure">
+  </div>
+</section>
 
-  </main>
+<section class="accordion">
+  <h2 class="accordion-title">Cabin Design</h2>
+  <div class="accordion-content">
+    <p>
+      Inside the cabins, seats curve like petals around a glowing center. 
+      Visitors sit facing outward inside 360° transparent walls.
+    </p>
+  </div>
+</section>
 
-  <button onclick="history.back()" class="back-btn">Back to Home Page</button>
+<section class="accordion">
+  <h2 class="accordion-title">Environment and Atmosphere</h2>
+  <div class="accordion-content">
+    <p>
+      The base is surrounded by a shallow reflecting pool. Low mist drifts across the pool, 
+      and stepping stones lead to the boarding platform, which glows faintly like a path of starlight.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<button class="back-btn" onclick="history.back()">← Back to Home Page</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    const title = acc.querySelector('.accordion-title');
+    title.addEventListener('click', () => {
+      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      acc.classList.toggle('active');
+    });
+  });
+});
+</script>
+
 </body>
 </html>

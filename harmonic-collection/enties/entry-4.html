@@ -1,51 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
-    <title>Document</title>
-   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Celestial Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #6a0a0a, #9c1a1a, #4f0000);
+  color: #fff;
+  text-align: center;
+}
+
+
+#bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,150,150,0.25), transparent 60%),
+    radial-gradient(circle at bottom, rgba(255,100,100,0.3), transparent 70%);
+  z-index: -1;
+  filter: blur(35px);
+}
+
+main {
+  width: 80%;
+  margin: 40px auto;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(150,50,50,0.5);
+}
+
+section img {
+  width: 80%;
+  max-width: 550px;
+  border-radius: 22px;
+  box-shadow: 0 0 25px rgba(255,100,100,0.6);
+  margin-top: 20px;
+}
+
+
+.accordion-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease; 
+}
+
+.accordion.active .accordion-content { 
+  max-height: 800px; 
+}
+
+.accordion-title { 
+  cursor:pointer; 
+  position: relative; 
+  padding-right:20px; 
+  margin-bottom:10px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.accordion-title::after { 
+  content:"▶"; 
+  position:absolute; 
+  right:0; 
+  top:0; 
+  font-size:12px; 
+  transition: transform 0.3s ease; 
+}
+
+.accordion.active .accordion-title::after { 
+  content:"▼"; 
+}
+
+.back-btn { 
+  margin:50px 0; 
+  padding:14px 26px; 
+  background: linear-gradient(45deg,#9c1a1a,#6a0a0a); 
+  border:none; 
+  color:#fff; 
+  border-radius:40px; 
+  cursor:pointer; 
+  box-shadow:0 0 20px rgba(200,50,50,0.7); 
+  transition:0.3s; 
+  font-family:'Press Start 2P',cursive;
+}
+
+.back-btn:hover { 
+  transform: scale(1.12); 
+  box-shadow:0 0 35px rgba(255,100,100,0.9);
+}
+</style>
 </head>
 <body>
-    <h1>The Celestial Carousel</h1>
-   <p>Glowing with starlight and soft music, the Celestial Carousel turns like a dream in motion. Each shining creature moves in gentle rhythm, carrying you through a world where time slows and every spin feels like a wish come true.</p>
-   <img src="../img/ -6.jpg">
-</body>
-<body>
-  <small><p>When night falls, the world begins to drift.
-The Celestial Carousel turns slowly under a sky of floating lights. Each horse shines with a soft glow, its mane made of silver threads that ripple as the music plays. The air feels lighter here — filled with warmth, laughter, and a hint of starlight. As you rise and fall with the rhythm, the whole park seems to fade away.
-It’s not just a ride — it’s a dream you can touch.</p></small>
-</body>
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Appearance and structure</h3>
-   </head>
-<body>
-   The Celestial Carousel stands at the heart of the park, glowing softly like a dream that never ends. Its roof spirals upward in layers of translucent glass and light, resembling a floating crown in motion. Instead of the traditional canopy, thousands of fiber-light threads hang down like starlight, swaying gently as the platform turns. From above, it looks like a slow-spinning galaxy — elegant, calm, and timeless.
-</body> 
- <head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Cabin design</h3>
-   </head>
-<body>
- Soft music flows from invisible speakers — a mix of piano, wind chimes, and distant echoes. Riders can feel the gentle rhythm beneath their feet as the platform turns. The air smells faintly of vanilla and ozone, like memory mixed with light rain. When you look around, the world slows down: laughter becomes melody, motion becomes rhythm. It’s not about thrill — it’s about drifting through a memory that feels alive.
-</body>  
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Environment and atmosphere</h3>
-   </head>
-<body>
- The carousel is surrounded by a ring of glowing trees whose leaves shimmer like holograms. Beneath them, the ground reflects the ride’s lights in rippling patterns, creating the illusion of floating in a shallow sea of stars. A faint mist drifts over the area, softening every sound. Visitors often stop here between rides, drawn by the calm — a moment to breathe, to watch, to feel.
-<button onclick="history.back()">Back to home page</button>
- </html>
 
+<div id="bg"></div>
+
+<main>
+  <section class="intro">
+    <h1>The Celestial Carousel</h1>
+    <small>
+      When night falls, the world begins to drift. The Celestial Carousel turns slowly under a sky of floating lights. Each horse shines with a soft glow, its mane made of silver threads that ripple as the music plays. The air feels lighter here — filled with warmth, laughter, and a hint of starlight.
+    </small>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Appearance and Structure</h2>
+    <div class="accordion-content">
+      <p>
+        The Celestial Carousel stands at the heart of the park, glowing softly like a dream that never ends. Its roof spirals upward in layers of translucent glass and light, resembling a floating crown in motion. Thousands of fiber-light threads hang down like starlight, swaying gently as the platform turns.
+      </p>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Cabin Design</h2>
+    <div class="accordion-content">
+      <p>
+        Soft music flows from invisible speakers — a mix of piano, wind chimes, and distant echoes. Riders can feel the gentle rhythm beneath their feet as the platform turns. The air smells faintly of vanilla and ozone, like memory mixed with light rain.
+      </p>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Environment and Atmosphere</h2>
+    <div class="accordion-content">
+      <p>
+        The carousel is surrounded by a ring of glowing trees whose leaves shimmer like holograms. Beneath them, the ground reflects the ride’s lights in rippling patterns, creating the illusion of floating in a shallow sea of stars. A faint mist drifts over the area, softening every sound.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<button class="back-btn" onclick="history.back()">← Back to Home Page</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    const title = acc.querySelector('.accordion-title');
+    title.addEventListener('click', () => {
+      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      acc.classList.toggle('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,57 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
-    <title>Haunted Manor</title>
-</head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Haunted Manor</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: #000000;
+  color: #f0f0f0;
+  text-align: center;
+}
 
+header h1 { 
+  font-size:28px; 
+  margin-top:40px; 
+  text-shadow:0 0 10px #555555,0 0 20px #ff0000;
+}
+
+.subtitle { 
+  font-size:10px; 
+  margin-top:12px; 
+  opacity:0.85;
+}
+
+main { 
+  width:80%; 
+  margin:40px auto;
+}
+
+section { 
+  margin-bottom:30px; 
+  padding:20px; 
+  background: rgba(255,255,255,0.05); 
+  border-radius:24px; 
+  box-shadow:0 0 25px rgba(255,0,0,0.35);
+}
+
+section img { 
+  width:80%; 
+  max-width:550px; 
+  border-radius:22px; 
+  box-shadow:0 0 25px rgba(255,50,50,0.6); 
+  margin-top:25px;
+}
+
+.accordion-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease;
+}
+
+.accordion.active .accordion-content { 
+  max-height: 800px;
+}
+
+.accordion-title { 
+  cursor:pointer; 
+  position: relative; 
+  padding-right:20px; 
+  margin-bottom:10px;
+}
+
+.accordion-title::after { 
+  content:"▶"; 
+  position:absolute; 
+  right:0; 
+  top:0; 
+  font-size:12px; 
+  transition: transform 0.3s ease; 
+}
+
+.accordion.active .accordion-title::after { 
+  content:"▼"; 
+}
+
+.back-btn { 
+  margin:50px 0; 
+  padding:14px 26px; 
+  background:linear-gradient(45deg,#330000,#660000); 
+  border:none; 
+  color:#f0f0f0; 
+  border-radius:40px; 
+  cursor:pointer; 
+  box-shadow:0 0 20px rgba(255,50,50,0.7); 
+  transition:0.3s; 
+  font-family:'Press Start 2P',cursive;
+}
+
+.back-btn:hover { 
+  transform: scale(1.12); 
+  box-shadow:0 0 35px rgba(255,100,100,0.9);
+}
+</style>
+</head>
 <body>
 
-    <h1>The Haunted Manor</h1>
-    <p>
-        Hidden behind drifting fog and old iron gates, the Haunted Manor waits in silence. 
-        Its crooked windows glow faintly, as if someone—or something—is still watching from inside. 
-        Every step closer feels like crossing a line you can't come back from.
-    </p>
-    <img src="../img/ -11.jpg" alt="Haunted Manor">
+<header>
+  <h1>The Haunted Manor</h1>
+  <p class="subtitle">Step into a chilling story that follows you home</p>
+</header>
 
-    <small>
-        <p>
-            The moment you enter, the temperature drops.  
-            Faint whispers echo through the halls as shadows stretch across the floor on their own.  
-            The walls feel alive—breathing, listening, remembering every visitor who've stepped inside.  
-            It’s not just a walkthrough… it’s a descent into a story that follows you long after you leave.
-        </p>
-    </small>
+<main>
+<section class="intro">
+  <p>Hidden behind drifting fog and old iron gates, The Haunted Manor waits in silence. 
+     Its crooked windows glow faintly, as if someone—or something—is still watching from inside.</p>
+</section>
 
-    <h3>Appearance and Structure</h3>
-    <p>
-        The manor stands tall with fractured stone walls and wooden beams twisted by time. 
-        Flickering lanterns swing above the entrance, casting long trembling shadows. 
-        Inside, the corridors bend unnaturally, forming loops and dead ends that confuse the senses.
-        Dust rises with every step, and the floors creak like they're whispering warnings.
-    </p>
+<section class="accordion">
+  <h2 class="accordion-title">Appearance and Structure</h2>
+  <div class="accordion-content">
+    <p>The manor stands tall with fractured stone walls and wooden beams twisted by time. 
+       Flickering lanterns swing above the entrance, casting long trembling shadows. 
+       Inside, the corridors bend unnaturally, forming loops and dead ends that confuse the senses.
+       Dust rises with every step, and the floors creak like they're whispering warnings.</p>
+  </div>
+</section>
 
-    <h3>Cabin Design</h3>
-    <p>
-        The rooms are filled with moving portraits, shivering curtains, and faint illusions that shift 
-        as you walk past. Hidden speakers send distant footsteps echoing behind you, even when 
-        no one is there. A faint smell of old wood and cold stone fills the air, giving the entire manor 
-        an unsettling sense of reality.
-    </p>
+<section class="accordion">
+  <h2 class="accordion-title">Interior Design</h2>
+  <div class="accordion-content">
+    <p>The rooms are filled with moving portraits, shivering curtains, and faint illusions that shift 
+       as you walk past. Hidden speakers send distant footsteps echoing behind you, even when 
+       no one is there. A faint smell of old wood and cold stone fills the air, giving the entire manor 
+       an unsettling sense of reality.</p>
 
-    <h3>Environment and Atmosphere</h3>
-    <p>
-        Thick fog wraps around the outside courtyard, glowing faintly under dim blue lights.  
-        Animatronic ravens perch on broken fences, cawing into the night.  
-        Occasionally, a sudden gust of wind shakes the trees—even when the air is still.  
-        Many guests linger outside after the ride, shivering not from cold, but from the feeling that 
-        something followed them out.
-    </p>
+  </div>
+</section>
 
-    <button onclick="history.back()">Back to home page</button>
+<section class="accordion">
+  <h2 class="accordion-title">Environment and Atmosphere</h2>
+  <div class="accordion-content">
+    <p>Thick fog wraps around the outside courtyard, glowing faintly under dim blue lights.  
+       Animatronic ravens perch on broken fences, cawing into the night.  
+       Occasionally, a sudden gust of wind shakes the trees—even when the air is still.  
+       Many guests linger outside after the ride, shivering not from cold, but from the feeling that 
+       something followed them out.</p>
+  </div>
+</section>
+
+</main>
+
+<button class="back-btn" onclick="history.back()">← Back to Home Page</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    const title = acc.querySelector('.accordion-title');
+    title.addEventListener('click', () => {
+      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      acc.classList.toggle('active');
+    });
+  });
+});
+</script>
 
 </body>
 </html>

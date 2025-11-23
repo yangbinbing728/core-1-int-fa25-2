@@ -1,56 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
-    <title>Document</title>
-    
-</head>
-<body>
-    <main class="three-column">
-      <section>
-   <h1>The Spark Arena</h1>
-   <p>Welcome to the noisiest, brightest corner of the park.
-The Spark Arena is built for laughter, chaos, and energy. Here, speed isn’t measured by distance but by reaction — by the sound of bumpers colliding, by sparks flashing when cars meet. The entire floor glows with moving light patterns, changing color with every hit. Music pulses through the air, syncing with the rhythm of impact. It’s a place where play turns into electricity, and nobody leaves without smiling.
-</p> 
-   <img src="../img/Bumper Cars.jpg">
-</body>
-<body>
- <small> <p>Ready, set… crash!
-The Neon Clash turns classic bumper cars into a glowing light battle. Each car is outlined with neon lines that shift color as you move — blue for defense, red for attack, and green when you dodge perfectly. The transparent floor flashes beneath the cars like lightning, reacting to every collision. Sparks of light burst on impact, and laughter fills the arena.
-It’s not just a ride — it’s a glowing storm of motion, sound, and joy.</p><small></section>
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Appearance and structure</h3>
-   </head>
-<body>
-   The Neon Clash arena sits like a glowing crater in the center of the park — round, open, and alive with motion. The floor is made of translucent panels that light up when the cars move, sending waves of color across the surface. Above, a wide dome of curved metal arcs overhead, covered with bands of shifting neon that pulse to the rhythm of the background music. From a distance, the whole arena looks like a beating heart of light — fast, wild, and unstoppable.
-</body> 
- <head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Cabin design</h3>
-   </head>
-<body>
-Inside each car, the seats are low and curved, wrapping the rider in a sense of control and tension. The wheel vibrates slightly with every turn, and the floor thrums with bass from the speakers hidden beneath. The moment you press the pedal, the world around you becomes rhythm and chaos — crashes sync with the beat, lights flash to the sound of motion. It’s not just a ride, it’s a pulse you can drive.
-</body>  
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Environment and atmosphere</h3>
-   </head>
-<body>
-  Around the arena, glass walls reflect the action inside like an endless loop. Holographic displays float in midair, tracking impact points and scores that flicker like digital fireflies. Thin mist seeps from vents at the edge of the floor, scattering the light into ribbons that twist and fade as cars spin past. The crowd watches from a raised ring of glowing platforms, cheering as the air fills with color and sound.
-</main>
-</body>  
-<button onclick="history.back()">Back to home page</button>
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Spark Arena</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #0a0a3a, #1a1a5a, #0f0f2f);
+  color: #fff;
+  text-align: center;
+}
 
+main {
+  width: 80%;
+  margin: 40px auto;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 0 20px rgba(50, 50, 150, 0.5);
+}
+
+section img {
+  width: 80%;
+  max-width: 550px;
+  border-radius: 22px;
+  box-shadow: 0 0 25px rgba(100, 100, 255, 0.6);
+  margin-top: 20px;
+}
+
+
+.accordion-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease; 
+}
+
+.accordion.active .accordion-content { 
+  max-height: 800px; 
+}
+
+.accordion-title { 
+  cursor:pointer; 
+  position: relative; 
+  padding-right:20px; 
+  margin-bottom:10px;
+  text-align: left;
+  font-size: 12px;
+}
+
+.accordion-title::after { 
+  content:"▶"; 
+  position:absolute; 
+  right:0; 
+  top:0; 
+  font-size:12px; 
+  transition: transform 0.3s ease; 
+}
+
+.accordion.active .accordion-title::after { 
+  content:"▼"; 
+}
+
+.back-btn { 
+  margin:50px 0; 
+  padding:14px 26px; 
+  background: linear-gradient(45deg,#0a0a3a,#1a1a5a); 
+  border:none; 
+  color:#fff; 
+  border-radius:40px; 
+  cursor:pointer; 
+  box-shadow:0 0 20px rgba(0,0,100,0.7); 
+  transition:0.3s; 
+  font-family:'Press Start 2P',cursive;
+}
+
+.back-btn:hover { 
+  transform: scale(1.12); 
+  box-shadow:0 0 35px rgba(50,50,200,0.9);
+}
+</style>
+</head>
+
+<body>
+
+<main>
+  <section class="intro">
+    <h1>The Spark Arena</h1>
+    <small>
+      Ready, set… crash! The Neon Clash turns classic bumper cars into a glowing light battle. Each car is outlined with neon lines that shift color as you move — blue for defense, red for attack, and green when you dodge perfectly.
+    </small>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Appearance and Structure</h2>
+    <div class="accordion-content">
+      <p>
+        The Neon Clash arena sits like a glowing crater in the center of the park — round, open, and alive with motion. The floor is made of translucent panels that light up when the cars move, sending waves of color across the surface. Above, a wide dome of curved metal arcs overhead, covered with bands of shifting neon that pulse to the rhythm of the background music.
+      </p>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Cabin Design</h2>
+    <div class="accordion-content">
+      <p>
+        Inside each car, the seats are low and curved, wrapping the rider in a sense of control and tension. The wheel vibrates slightly with every turn, and the floor thrums with bass from the speakers hidden beneath. Crashes sync with the beat, lights flash to the sound of motion.
+      </p>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Environment and Atmosphere</h2>
+    <div class="accordion-content">
+      <p>
+        Around the arena, glass walls reflect the action inside like an endless loop. Holographic displays float in midair, tracking impact points and scores that flicker like digital fireflies. Thin mist seeps from vents at the edge of the floor, scattering the light into ribbons that twist and fade as cars spin past.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<button class="back-btn" onclick="history.back()">← Back to Home Page</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    const title = acc.querySelector('.accordion-title');
+    title.addEventListener('click', () => {
+      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      acc.classList.toggle('active');
+    });
+  });
+});
+</script>
+
+</body>
+</html>

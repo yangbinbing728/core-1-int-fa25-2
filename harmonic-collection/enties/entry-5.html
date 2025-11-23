@@ -1,45 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../styles.css">
-    <title>Document</title>
-   
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Aqua Rush</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: linear-gradient(180deg, #a8e6a3, #7ed957, #4caf50);
+  color: #fffdf5;
+  text-align: center;
+}
+
+header h1 { 
+  font-size:28px; 
+  margin-top:40px; 
+  text-shadow:0 0 10px #d0ffd0,0 0 20px #90ee90;
+}
+
+.subtitle { 
+  font-size:10px; 
+  margin-top:12px; 
+  opacity:0.85;
+}
+
+main { 
+  width:80%; 
+  margin:40px auto;
+}
+
+section { 
+  margin-bottom:30px; 
+  padding:20px; 
+  background: rgba(255,255,255,0.08); 
+  border-radius:24px; 
+  box-shadow:0 0 25px rgba(120,255,120,0.35);
+}
+
+section img { 
+  width:80%; 
+  max-width:550px; 
+  border-radius:22px; 
+  box-shadow:0 0 25px rgba(180,255,180,0.6); 
+  margin-top:25px;
+}
+
+.accordion-content { 
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease;
+}
+
+.accordion.active .accordion-content { 
+  max-height: 800px;
+}
+
+.accordion-title { 
+  cursor:pointer; 
+  position: relative; 
+  padding-right:20px; 
+  margin-bottom:10px;
+}
+
+.accordion-title::after { 
+  content:"▶"; 
+  position:absolute; 
+  right:0; 
+  top:0; 
+  font-size:12px; 
+  transition: transform 0.3s ease; 
+}
+
+.accordion.active .accordion-title::after { 
+  content:"▼"; 
+}
+
+.back-btn { 
+  margin:50px 0; 
+  padding:14px 26px; 
+  background:linear-gradient(45deg,#7ed957,#4caf50); 
+  border:none; 
+  color:#fffdf5; 
+  border-radius:40px; 
+  cursor:pointer; 
+  box-shadow:0 0 20px rgba(120,255,120,0.7); 
+  transition:0.3s; 
+  font-family:'Press Start 2P',cursive;
+}
+
+.back-btn:hover { 
+  transform: scale(1.12); 
+  box-shadow:0 0 35px rgba(180,255,180,0.9);
+}
+</style>
 </head>
 <body>
-    <h1>The Aqua Rush</h1>
-   <p>The Aqua Rush — Ride through a glowing river of light and motion, where crystal waves rise and fall beneath neon skies. Every drop sends a burst of color into the air, every turn blurs the line between thrill and dream — a rush of water, wind, and pure exhilaration.</p>
-   <img src="../img/The Flume Zoom Ride at Opryland USA.jpg">
+
+<header>
+  <h1>The Aqua Rush</h1>
+  <p class="subtitle">Ride through a river of light and thrill!</p>
+</header>
+
+<main>
+<section class="intro">
+  <p>The Aqua Rush — Ride through a glowing river of light and motion, where crystal waves rise and fall beneath neon skies. Every drop sends a burst of color into the air, every turn blurs the line between thrill and dream — a rush of water, wind, and pure exhilaration.</p>
+</section>
+
+<section class="accordion">
+  <h2 class="accordion-title">Appearance and Structure</h2>
+  <div class="accordion-content">
+    <p>The Aqua Rush winds through the lower valley of the park like a living river of glass. Its track glows faintly beneath the water, curving between cliffs of light and mist. Transparent bridges rise and twist above, allowing visitors to watch as the boats shoot past in a shimmer of spray. The main drop towers like a waterfall of light — tall, sleek, and endlessly flowing.</p>
+    <img src="../img/The Flume Zoom Ride at Opryland USA.jpg" alt="Aqua Rush">
+  </div>
+</section>
+
+<section class="accordion">
+  <h2 class="accordion-title">Cabin Design</h2>
+  <div class="accordion-content">
+    <p>Inside the boats, the seats are smooth and curved, designed to cradle the rider as the ride speeds forward. A soft hum builds before every drop, rising into a rush of wind and water that fills the air. Mist brushes against your face, cool and sharp, while the scent of ozone and riverlight lingers in your breath. The moments between climbs and falls feel almost weightless — like floating between excitement and calm.</p>
+  </div>
+</section>
+
+<section class="accordion">
+  <h2 class="accordion-title">Environment and Atmosphere</h2>
+  <div class="accordion-content">
+    <p>Around the river, the air is thick with drifting mist. Holographic fish glide through it, leaving trails of light like swimming comets. Crystal rocks rise from the ground, their edges refracting the moving colors of the ride. Soft blue lights ripple through the fog, guiding the path like an underwater aurora.</p>
+  </div>
+</section>
+
+</main>
+
+<button class="back-btn" onclick="history.back()">← Back to Home Page</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    const title = acc.querySelector('.accordion-title');
+    title.addEventListener('click', () => {
+      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      acc.classList.toggle('active');
+    });
+  });
+});
+</script>
+
 </body>
-<body>
- <small> <p>Hold your breath — and dive into the splash!
-The Aqua Rush sends you speeding through tunnels of mist and light, racing down glassy drops that sparkle like waterfalls. Every turn bursts with color and spray, every fall ends in laughter and foam. The air smells of rain and electricity, and for a moment, it feels like flying through a living wave.
-It’s not just a water ride — it’s a plunge into pure joy.</p></small>
-</body>
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Appearance and structure</h3>
-   </head>
-<body>The Aqua Rush winds through the lower valley of the park like a living river of glass. Its track glows faintly beneath the water, curving between cliffs of light and mist. Transparent bridges rise and twist above, allowing visitors to watch as the boats shoot past in a shimmer of spray. The main drop towers like a waterfall of light — tall, sleek, and endlessly flowing. From afar, it looks like a ribbon of liquid crystal cutting through the park’s heart.</body>
- <head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Cabin design</h3>
-   </head>
-<body>Inside the boats, the seats are smooth and curved, designed to cradle the rider as the ride speeds forward. A soft hum builds before every drop, rising into a rush of wind and water that fills the air. Mist brushes against your face, cool and sharp, while the scent of ozone and riverlight lingers in your breath. The moments between climbs and falls feel almost weightless — like floating between excitement and calm.</body>
-<head> 
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="。。/。。/styles.css">
-    <title>Document</title>
-    <h3>Environment and atmosphere</h3>
-   </head>
-<body>Around the river, the air is thick with drifting mist. Holographic fish glide through it, leaving trails of light like swimming comets. Crystal rocks rise from the ground, their edges refracting the moving colors of the ride. Visitors walking nearby feel the splash reach their skin — tiny droplets that sparkle in the air before fading like sparks. Soft blue lights ripple through the fog, guiding the path like an underwater aurora.</body>
-<button onclick="history.back()">Back to home page</button>
 </html>
