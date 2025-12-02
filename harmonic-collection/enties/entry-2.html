@@ -5,96 +5,149 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Luminous Wheel Zone</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
+
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
   background: linear-gradient(180deg, #ffb6c1, #ffc0cb, #ffe4e1);
-  color: #fff;
+  color: white;
   text-align: center;
 }
 
+
+header {
+  padding: 32px 16px 0;
+}
+
 header h1 {
-  font-size: 28px;
-  margin-top: 40px;
-  text-shadow: 0 0 10px #fff1cc, 0 0 20px #ffb6c1;
+  font-size: 24px;
+  margin: 0;
+  text-shadow: 0 0 6px #ffe6f0, 0 0 12px #ffb6c1;
 }
 
 .subtitle {
   font-size: 10px;
-  margin-top: 12px;
-  opacity: 0.85;
+  margin-top: 14px;
+  opacity: 0.9;
 }
 
+/* ----------- MAIN LAYOUT ----------- */
 main {
-  width: 80%;
-  margin: 40px auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 32px auto 40px;
 }
 
 section {
-  margin-bottom: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  box-shadow: 0 0 25px rgba(255, 140, 180, 0.35);
+  margin-bottom: 24px;
+  padding: 18px 18px 20px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(255, 150, 180, 0.28);
 }
 
-section img {
-  width: 80%;
-  max-width: 550px;
-  border-radius: 22px;
-  box-shadow: 0 0 25px rgba(255, 200, 220, 0.6);
-  margin-top: 25px;
-}
-
-/* 手风琴样式 */
-.accordion-content { 
-  max-height: 0; 
-  overflow: hidden; 
-  transition: max-height 0.5s ease; 
-}
-
-.accordion.active .accordion-content { 
-  max-height: 800px; 
-}
-
-.accordion-title { 
-  cursor:pointer; 
-  position: relative; 
-  padding-right:20px; 
-  margin-bottom:10px;
+section p {
+  line-height: 1.7;
+  font-size: 10px;
+  max-width: 60ch;
+  margin: 0 auto;
   text-align: left;
 }
 
-.accordion-title::after { 
-  content:"▶"; 
-  position:absolute; 
-  right:0; 
-  top:0; 
-  font-size:12px; 
-  transition: transform 0.3s ease; 
+.intro p {
+  text-align: center;
 }
 
-.accordion.active .accordion-title::after { 
-  content:"▼"; 
+
+section h2 {
+  font-size: 12px;
+  margin: 0 0 10px;
+  text-align: left;
 }
 
-.back-btn { 
-  margin:50px 0; 
-  padding:14px 26px; 
-  background: linear-gradient(45deg,#ffb6c1,#ff69b4); 
-  border:none; 
-  color:#fff; 
-  border-radius:40px; 
-  cursor:pointer; 
-  box-shadow:0 0 20px rgba(255,120,180,0.7); 
-  transition:0.3s; 
-  font-family:'Press Start 2P',cursive;
+
+section img {
+  width: 80%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 0 18px rgba(255, 200, 220, 0.6);
+  margin: 18px auto 0;
+  display: block;
 }
 
-.back-btn:hover { 
-  transform: scale(1.12); 
-  box-shadow:0 0 35px rgba(255,160,200,0.9);
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 6px;
+}
+
+.accordion.active .accordion-content {
+  max-height: 800px;
+}
+
+.accordion-title {
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.accordion-title::after {
+  content: "▶";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.accordion.active .accordion-title::after {
+  content: "▼";
+}
+
+
+.video-title {
+  font-size: 12px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.video-frame {
+  margin-top: 16px;
+}
+
+.video-frame iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 320px;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(255,200,220,0.6);
+  border: none;
+}
+
+
+.back-btn {
+  margin: 20px 0 40px;
+  padding: 12px 22px;
+  background: linear-gradient(45deg, #ff8fb6, #ff4f9e);
+  border: none;
+  color: #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(255, 150, 200, 0.7);
+  transition: 0.25s;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 0 28px rgba(255,160,200,0.9);
 }
 </style>
 </head>
@@ -106,42 +159,59 @@ section img {
 </header>
 
 <main>
-<section class="intro">
-  <section>
-  <small>
-    Drift through the sky like a star in motion. The Celestial Orbit takes you high above the park inside crystal cabins glowing with soft blue light.
-  </small>
-</section>
 
+
+<section class="intro">
+  <p>
+    Drift through the pastel sky inside a glowing crystal cabin.
+    The wheel turns slowly, giving you a quiet, dreamlike view of the entire amusement park.
+  </p>
+</section>
 
 <section class="accordion">
   <h2 class="accordion-title">Appearance and Structure</h2>
   <div class="accordion-content">
     <p>
-      The Luminous Wheel stands quietly at the edge of the park, taller than any other structure.
-      Its frame isn’t made of ordinary metal — it’s a circle of light, woven from hundreds of transparent beams.
+      The Luminous Wheel stands like a radiant halo at the edge of the park.
+      Its transparent beams catch soft pink and lavender light, making the wheel glow gently at dusk.
     </p>
     <img src="../img/ -12.jpg" alt="The Wheel Structure">
   </div>
 </section>
 
+
 <section class="accordion">
   <h2 class="accordion-title">Cabin Design</h2>
   <div class="accordion-content">
     <p>
-      Inside the cabins, seats curve like petals around a glowing center. 
-      Visitors sit facing outward inside 360° transparent walls.
+      Each cabin is shaped like a floating orb, with 360° clear walls.
+      Soft pastel lights pulse gently inside, creating a calm, airy atmosphere as riders rise into the clouds.
     </p>
   </div>
 </section>
+
 
 <section class="accordion">
   <h2 class="accordion-title">Environment and Atmosphere</h2>
   <div class="accordion-content">
     <p>
-      The base is surrounded by a shallow reflecting pool. Low mist drifts across the pool, 
-      and stepping stones lead to the boarding platform, which glows faintly like a path of starlight.
+      Below the wheel, a reflective pool amplifies the glowing colors.
+      Mist drifts across the surface, making the walkway look like a bridge suspended in the sky.
     </p>
+  </div>
+</section>
+
+
+<section class="video-section">
+  <h2 class="video-title">Ride Preview</h2>
+
+  <div class="video-frame">
+    <iframe 
+      src="https://www.youtube.com/embed/0hPqZQhUzU4"
+      title="Ferris Wheel POV"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
@@ -155,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   accordions.forEach(acc => {
     const title = acc.querySelector('.accordion-title');
     title.addEventListener('click', () => {
-      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      accordions.forEach(a => { if (a !== acc) { a.classList.remove('active'); }});
       acc.classList.toggle('active');
     });
   });

@@ -4,100 +4,115 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Twilight Tea Cups</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(180deg, #a0f0f0, #50c0c0, #008080);
+  background: linear-gradient(180deg, #b2f6f6, #63d6d6, #008b8b);
   color: #fffdf5;
   text-align: center;
 }
 
+header {
+  padding: 32px 16px 0;
+}
+
 header h1 { 
-  font-size:28px; 
-  margin-top:40px; 
-  text-shadow:0 0 10px #b0ffff,0 0 20px #50e0e0;
+  font-size: 24px; 
+  margin: 0;
+  text-shadow: 0 0 6px #cfffff, 0 0 14px #77ffff;
 }
 
 .subtitle { 
-  font-size:10px; 
-  margin-top:12px; 
-  opacity:0.85;
+  font-size: 10px; 
+  margin-top: 14px; 
+  opacity: 0.9;
 }
 
 main { 
-  width:80%; 
-  margin:40px auto;
+  width: 90%; 
+  max-width: 900px;
+  margin: 32px auto 40px;
 }
 
 section { 
-  margin-bottom:30px; 
-  padding:20px; 
+  margin-bottom: 24px; 
+  padding: 18px 18px 20px; 
   background: rgba(255,255,255,0.08); 
-  border-radius:24px; 
-  box-shadow:0 0 25px rgba(80,255,255,0.35);
+  border-radius: 20px; 
+  box-shadow: 0 8px 20px rgba(120,255,255,0.35);
 }
 
-section img { 
-  width:80%; 
-  max-width:550px; 
-  border-radius:22px; 
-  box-shadow:0 0 25px rgba(150,255,255,0.6); 
-  margin-top:25px;
+section p {
+  line-height: 1.7;
+  font-size: 10px;
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.intro p {
+  text-align: center;
+}
+
+section h2 {
+  font-size: 12px;
+  margin: 0 0 10px;
 }
 
 .accordion-content { 
   max-height: 0; 
   overflow: hidden; 
   transition: max-height 0.5s ease;
+  margin-top: 6px;
 }
 
 .accordion.active .accordion-content { 
   max-height: 800px;
 }
-
 .accordion-title { 
-  cursor:pointer; 
+  cursor: pointer; 
   position: relative; 
-  padding-right:20px; 
-  margin-bottom:10px;
+  padding-right: 20px; 
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-align: left;
 }
-
 .accordion-title::after { 
-  content:"▶"; 
-  position:absolute; 
-  right:0; 
-  top:0; 
-  font-size:12px; 
+  content: "▶"; 
+  position: absolute; 
+  right: 0; 
+  top: 0; 
+  font-size: 10px; 
   transition: transform 0.3s ease; 
 }
-
 .accordion.active .accordion-title::after { 
-  content:"▼"; 
+  content: "▼"; 
 }
-
 .back-btn { 
-  margin:50px 0; 
-  padding:14px 26px; 
-  background:linear-gradient(45deg,#50c0c0,#008080); 
-  border:none; 
-  color:#fffdf5; 
-  border-radius:40px; 
-  cursor:pointer; 
-  box-shadow:0 0 20px rgba(80,255,255,0.7); 
-  transition:0.3s; 
-  font-family:'Press Start 2P',cursive;
+  margin: 20px 0 40px; 
+  padding: 12px 22px; 
+  background: linear-gradient(45deg,#63d6d6,#008b8b); 
+  border: none; 
+  color: #fffdf5; 
+  border-radius: 40px; 
+  cursor: pointer; 
+  box-shadow: 0 0 18px rgba(120,255,255,0.7); 
+  transition: 0.25s; 
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
 }
 
 .back-btn:hover { 
-  transform: scale(1.12); 
-  box-shadow:0 0 35px rgba(150,255,255,0.9);
+  transform: translateY(-2px) scale(1.06); 
+  box-shadow: 0 0 28px rgba(150,255,255,0.9);
 }
 </style>
 </head>
 <body>
-
 <header>
   <h1>Twilight Tea Cups</h1>
   <p class="subtitle">Spin into a swirl of lights and laughter!</p>
@@ -105,34 +120,41 @@ section img {
 
 <main>
 <section class="intro">
-  <p>The Twilight Tea Cups spin you into a magical whirl of color and joy. 
-     Each cup lifts and rotates, carrying you into a world of sparkling lights and dreamy winds.</p>
+  <p>
+    The Twilight Tea Cups spin you into a magical whirl of color and joy.  
+    Each cup lifts and rotates, carrying you into a world of sparkling lights and dreamy winds.
+  </p>
 </section>
 
 <section class="accordion">
   <h2 class="accordion-title">Appearance and Structure</h2>
   <div class="accordion-content">
-    <p>The ride features a large circular platform with pastel-colored teacups rotating around a central axis. 
-       The base glows softly, reflecting lights that shift in rhythm with the spinning motion. 
-       Twinkling lanterns hang above, casting gentle shadows across the cups, making the scene feel like floating in a dreamy sky.</p>
+    <p>
+      The ride features a large circular platform with pastel-colored teacups arranged around a glowing center.  
+      Twinkling lanterns hang above, casting playful shadows across the cups, creating the feeling of drifting inside a floating dream.
+    </p>
   </div>
 </section>
 
 <section class="accordion">
   <h2 class="accordion-title">Cup Design</h2>
   <div class="accordion-content">
-    <p>Each teacup is decorated with sparkling patterns and soft pastel colors. 
-       Seats are cushioned and slightly elevated, giving the feeling of floating. 
-       Riders can spin their own cups with a central wheel, adding an interactive element to the experience.</p>
+    <p>
+      Each teacup is decorated with shimmering patterns and soft pastel tones.  
+      Seats are cushioned and gently elevated, adding to the sense of floating.  
+      Riders can spin their cup using a central wheel, creating unique combinations of motion and laughter.
+    </p>
   </div>
 </section>
 
 <section class="accordion">
   <h2 class="accordion-title">Environment and Atmosphere</h2>
   <div class="accordion-content">
-    <p>Soft mist rises from hidden fountains, glowing under twinkling fairy lights. 
-       Gentle music plays as the cups spin, and pastel-colored lights change hues with the motion. 
-       Visitors around the ride are immersed in a whimsical, dreamy atmosphere that blends motion, color, and laughter.</p>
+    <p>
+      Soft mist drifts from hidden fountains, glowing under strands of fairy lights.  
+      Gentle melodies accompany the spinning motion, while pastel lights shift in harmony with the rhythm.  
+      The whole ride feels whimsical and airy — like stepping inside a swirling pastel dream.
+    </p>
   </div>
 </section>
 
@@ -146,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
   accordions.forEach(acc => {
     const title = acc.querySelector('.accordion-title');
     title.addEventListener('click', () => {
-      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      accordions.forEach(a => { if(a !== acc) a.classList.remove('active'); });
       acc.classList.toggle('active');
     });
   });

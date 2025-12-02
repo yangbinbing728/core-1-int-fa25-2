@@ -9,90 +9,127 @@
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(180deg, #8b0000, #c60000, #ff3d3d);
+  background: linear-gradient(180deg, #8b2300, #c65c00d2, #ff9e3dcf);
   color: #fff7e6;
   text-align: center;
 }
 
+
+header {
+  padding: 32px 16px 0;
+}
+
 header h1 { 
-  font-size:28px; 
-  margin-top:40px; 
-  text-shadow:0 0 10px #ff9999,0 0 20px #ff4d4d;
+  font-size: 24px; 
+  margin: 0; 
+  text-shadow: 0 0 6px #ffd899, 0 0 12px #ff9a4d;
 }
 
 .subtitle { 
-  font-size:10px; 
-  margin-top:12px; 
-  opacity:0.85;
+  font-size: 10px; 
+  margin-top: 14px; 
+  opacity: 0.9;
 }
 
 main { 
-  width:80%; 
-  margin:40px auto;
+  width: 90%; 
+  max-width: 900px;
+  margin: 32px auto 40px;
 }
+
 
 section { 
-  margin-bottom:30px; 
-  padding:20px; 
-  background: rgba(255,255,255,0.08); 
-  border-radius:24px; 
-  box-shadow:0 0 25px rgba(255,100,100,0.35);
+  margin-bottom: 24px; 
+  padding: 18px 18px 20px; 
+  background: rgba(255,255,255,0.07); 
+  border-radius: 20px; 
+  box-shadow: 0 8px 20px rgba(255, 162, 100, 0.28);
 }
 
-section img { 
-  width:80%; 
-  max-width:550px; 
-  border-radius:22px; 
-  box-shadow:0 0 25px rgba(255,150,150,0.6); 
-  margin-top:25px;
+
+section p {
+  line-height: 1.7;
+  font-size: 10px;
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: left;
 }
+
+
+.intro p {
+  text-align: center;
+}
+
+
+section h2 {
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+
+section img { 
+  width: 80%; 
+  max-width: 520px; 
+  border-radius: 18px; 
+  box-shadow: 0 0 18px rgba(255, 199, 150, 0.6); 
+  margin: 18px auto 0;
+  display: block;
+}
+
 
 .accordion-content { 
   max-height: 0; 
   overflow: hidden; 
   transition: max-height 0.5s ease;
+  margin-top: 6px;
 }
 
 .accordion.active .accordion-content { 
   max-height: 800px;
 }
 
+
 .accordion-title { 
-  cursor:pointer; 
+  cursor: pointer; 
   position: relative; 
-  padding-right:20px; 
-  margin-bottom:10px;
+  padding-right: 20px; 
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-align: left;
 }
 
+
 .accordion-title::after { 
-  content:"▶"; 
-  position:absolute; 
-  right:0; 
-  top:0; 
-  font-size:12px; 
+  content: "▶"; 
+  position: absolute; 
+  right: 0; 
+  top: 0; 
+  font-size: 10px; 
   transition: transform 0.3s ease; 
 }
 
 .accordion.active .accordion-title::after { 
-  content:"▼"; 
+  content: "▼"; 
 }
 
+
 .back-btn { 
-  margin:50px 0; 
-  padding:14px 26px; 
-  background:linear-gradient(45deg,#c60000,#8b0000); 
-  border:none; 
-  color:#fff; 
-  border-radius:40px; 
-  cursor:pointer; 
-  box-shadow:0 0 20px rgba(255,100,100,0.7); 
-  transition:0.3s; 
-  font-family:'Press Start 2P',cursive;
+  margin: 20px 0 40px; 
+  padding: 12px 22px; 
+  background: linear-gradient(45deg,#c64c00,#8b3a00); 
+  border: none; 
+  color: #fff; 
+  border-radius: 40px; 
+  cursor: pointer; 
+  box-shadow: 0 0 18px rgba(255, 190, 100, 0.7); 
+  transition: 0.25s; 
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
 }
 
 .back-btn:hover { 
-  transform: scale(1.12); 
-  box-shadow:0 0 35px rgba(255,150,150,0.9);
+  transform: translateY(-2px) scale(1.06); 
+  box-shadow: 0 0 28px rgba(255,150,150,0.9);
 }
 </style>
 </head>
@@ -104,34 +141,45 @@ section img {
 </header>
 
 <main>
-<section class="intro">
-  <p>This roller coaster delivers the ultimate adrenaline rush with high-speed drops, sharp turns, and intense loops.</p>
-</section>
+  <section class="intro">
+    <p>This roller coaster delivers the ultimate adrenaline rush with high-speed drops, sharp turns, and intense loops.</p>
+  </section>
 
-<section class="accordion">
-  <h2 class="accordion-title">Appearance and Structure</h2>
-  <div class="accordion-content">
-    <p>The Storm Track rises like a silver skeleton against the sky. Its frame twists and coils in midair, made of shining metal beams that catch every bit of light. From a distance, it looks almost alive — like a giant steel serpent frozen in motion. The track loops over itself several times, forming spirals that seem impossible for gravity to allow. At night, the entire structure glows faintly, as if electricity runs through its veins.
-</p>
-    <img src="../img/324fda25f924fb59e93aebae645013d1.jpg" alt="Storm Track">
+  <section class="accordion">
+    <h2 class="accordion-title">Appearance and Structure</h2>
+    <div class="accordion-content">
+      <p>The Storm Track rises like a silver skeleton against the sky. Its frame twists and coils in midair, made of shining metal beams that catch every bit of light. From a distance, it looks almost alive — like a giant steel serpent frozen in motion. The track loops over itself several times, forming spirals that seem impossible for gravity to allow. At night, the entire structure glows faintly, as if electricity runs through its veins.</p>
+      <img src="../img/324fda25f924fb59e93aebae645013d1.jpg" alt="Storm Track">
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Cabin Design</h2>
+    <div class="accordion-content">
+      <p>The passenger cars are shaped like aerodynamic capsules, sleek and sharp-edged, with translucent shells that let riders see the world rushing past. The seats are suspended slightly above the base, creating the illusion of floating. Inside, soft blue light fills the cabin, and small holographic symbols flicker across the dashboard. It feels less like boarding a coaster and more like entering a futuristic aircraft.</p>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <h2 class="accordion-title">Environment and Atmosphere</h2>
+    <div class="accordion-content">
+      <p>Around the coaster, artificial mist machines release thin clouds that swirl around the base of the structure. When the lights hit the fog, it creates a glowing storm-like halo — the reason behind its name. Electric sounds echo through hidden speakers: the crackle of thunder, the whoosh of wind. Even before the ride starts, the atmosphere already feels charged, as if a storm is about to break.</p>
+    </div>
+  </section>
+  <section class="video-section">
+  <h2 class="video-title">Ride Preview</h2>
+
+  <div class="video-frame">
+    <iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/fxVymCuT-qs"
+  title="Roller Coaster POV"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+  allowfullscreen>
+</iframe>
   </div>
 </section>
 
-<section class="accordion">
-  <h2 class="accordion-title">Cabin Design</h2>
-  <div class="accordion-content">
-    <p>The passenger cars are shaped like aerodynamic capsules, sleek and sharp-edged, with translucent shells that let riders see the world rushing past. The seats are suspended slightly above the base, creating the illusion of floating. Inside, soft blue light fills the cabin, and small holographic symbols flicker across the dashboard. It feels less like boarding a coaster and more like entering a futuristic aircraft.
-</p>
-  </div>
-</section>
-
-<section class="accordion">
-  <h2 class="accordion-title">Environment and Atmosphere</h2>
-  <div class="accordion-content">
-    <p>Around the coaster, artificial mist machines release thin clouds that swirl around the base of the structure. When the lights hit the fog, it creates a glowing storm-like halo — the reason behind its name. Electric sounds echo through hidden speakers: the crackle of thunder, the whoosh of wind. Even before the ride starts, the atmosphere already feels charged, as if a storm is about to break.
-</p>
-  </div>
-</section>
 
 </main>
 
@@ -143,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
   accordions.forEach(acc => {
     const title = acc.querySelector('.accordion-title');
     title.addEventListener('click', () => {
-      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      accordions.forEach(a => { if (a !== acc) { a.classList.remove('active'); } });
       acc.classList.toggle('active');
     });
   });

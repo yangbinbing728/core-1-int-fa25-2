@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comments · Amusement Park</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f4f1ec;
+      margin: 0;
+      font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #2b2522;
+    }
+
+  
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: black;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 999;
+      border: none;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      opacity: 0.85;
+    }
+
+    .page-wrapper {
+      max-width: 780px;
+      margin: 120px auto 80px;
+      padding: 0 24px 40px;
+    }
+
+    .page-title {
+      font-size: clamp(30px, 5vw, 40px);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .page-intro {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .comment-form {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px 20px 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .form-row input,
+    .form-row select,
+    .comment-form textarea {
+      font-family: inherit;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #d7cfc8;
+      background: #fdfaf6;
+      flex: 1;
+      min-width: 120px;
+    }
+
+    .comment-form textarea {
+      width: 100%;
+      min-height: 90px;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+
+    .comment-form button {
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 9px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .comment-form button:hover {
+      opacity: 0.9;
+    }
+
+    .comments-list-title {
+      font-size: 16px;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .comments-empty {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .comment-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 14px 16px 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      margin-bottom: 14px;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .comment-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .comment-feeling {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .comment-time {
+      margin-top: 6px;
+      font-size: 11px;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<main class="page-wrapper">
+  <h1 class="page-title">Guest Comments</h1>
+  <p class="page-intro">
+    This page is a small guest book for the amusement park.  
+    If you’d like, you can leave a short message about how you feel,  
+    what you enjoyed, or anything you want to say to the park.
+  </p>
+
+
+  <section class="comment-form">
+    <div class="form-row">
+      <input type="text" id="name" placeholder="Your name (or nickname)" />
+      <select id="feeling">
+        <option value="">How do you feel?</option>
+        <option>Excited</option>
+        <option>Curious</option>
+        <option>Nostalgic</option>
+        <option>Relaxed</option>
+        <option>A little dizzy (in a good way)</option>
+      </select>
+    </div>
+    <textarea id="message" placeholder="Write your message to the park here..."></textarea>
+    <button id="submitComment">Send</button>
+    <div style="clear: both;"></div>
+  </section>
+
+  
+  <section>
+    <p class="comments-list-title">Messages from visitors</p>
+    <div id="commentsContainer"></div>
+  </section>
+</main>
+
+<script>
+  const nameInput = document.getElementById("name");
+  const feelingSelect = document.getElementById("feeling");
+  const messageInput = document.getElementById("message");
+  const submitBtn = document.getElementById("submitComment");
+  const commentsContainer = document.getElementById("commentsContainer");
+
+  
+  function loadComments() {
+    const stored = localStorage.getItem("amusementParkComments");
+    let comments = [];
+    if (stored) {
+      try {
+        comments = JSON.parse(stored);
+      } catch (e) {
+        comments = [];
+      }
+    }
+    return comments;
+  }
+
+  function saveComments(comments) {
+    localStorage.setItem("amusementParkComments", JSON.stringify(comments));
+  }
+
+  function renderComments() {
+    const comments = loadComments();
+    commentsContainer.innerHTML = "";
+
+    if (comments.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "comments-empty";
+      empty.textContent = "No comments yet — the park is still quiet. You can be the first visitor to leave a message.";
+      commentsContainer.appendChild(empty);
+      return;
+    }
+
+    comments.forEach((c) => {
+      const card = document.createElement("div");
+      card.className = "comment-card";
+
+      const header = document.createElement("div");
+      header.className = "comment-header";
+
+      const name = document.createElement("div");
+      name.className = "comment-name";
+      name.textContent = c.name || "Anonymous visitor";
+
+      const feeling = document.createElement("div");
+      feeling.className = "comment-feeling";
+      feeling.textContent = c.feeling || "";
+
+      header.appendChild(name);
+      header.appendChild(feeling);
+
+      const text = document.createElement("div");
+      text.className = "comment-text";
+      text.textContent = c.message;
+
+      const time = document.createElement("div");
+      time.className = "comment-time";
+      time.textContent = c.time || "";
+
+      card.appendChild(header);
+      card.appendChild(text);
+      card.appendChild(time);
+
+      commentsContainer.appendChild(card);
+    });
+  }
+
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const feeling = feelingSelect.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!message) {
+      alert("Please write a short message before sending.");
+      return;
+    }
+
+    const comments = loadComments();
+    const now = new Date();
+    const timeString = now.toLocaleString();
+
+    comments.unshift({
+      name,
+      feeling,
+      message,
+      time: timeString
+    });
+
+    saveComments(comments);
+    renderComments();
+
+  
+    messageInput.value = "";
+   
+  });
+
+
+  renderComments();
+</script>
+
+</body>
+</html>

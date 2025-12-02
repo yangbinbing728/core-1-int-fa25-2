@@ -5,94 +5,130 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Ember Drop</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
+
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  background: linear-gradient(180deg, #fff176, #ffc107, #ffb300);
+  background: linear-gradient(180deg, #f7e26b, #ffca28, #ffb300);
   color: #fffdf5;
   text-align: center;
 }
 
+header {
+  padding: 32px 16px 0;
+}
+
 header h1 { 
-  font-size:28px; 
-  margin-top:40px; 
-  text-shadow:0 0 10px #fff9b0,0 0 20px #ffd54f;
+  font-size: 24px; 
+  margin: 0;
+  text-shadow: 0 0 6px #fff9c4, 0 0 14px #ffc107;
 }
 
 .subtitle { 
-  font-size:10px; 
-  margin-top:12px; 
-  opacity:0.85;
+  font-size: 10px; 
+  margin-top: 14px; 
+  opacity: 0.9;
 }
+
 
 main { 
-  width:80%; 
-  margin:40px auto;
+  width: 90%; 
+  max-width: 900px;
+  margin: 32px auto 40px;
 }
+
 
 section { 
-  margin-bottom:30px; 
-  padding:20px; 
-  background: rgba(255,255,255,0.08); 
-  border-radius:24px; 
-  box-shadow:0 0 25px rgba(255,200,100,0.35);
+  margin-bottom: 24px; 
+  padding: 18px 18px 20px; 
+  background: rgba(255,255,255,0.07); 
+  border-radius: 20px; 
+  box-shadow: 0 8px 20px rgba(255, 189, 47, 0.25);
 }
 
-section img { 
-  width:80%; 
-  max-width:550px; 
-  border-radius:22px; 
-  box-shadow:0 0 25px rgba(255,220,150,0.6); 
-  margin-top:25px;
+section p {
+  line-height: 1.7;
+  font-size: 10px;
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: left;
 }
+
+.intro p {
+  text-align: center;
+}
+
+
+section h2 {
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+
+section img { 
+  width: 80%; 
+  max-width: 520px; 
+  border-radius: 18px; 
+  box-shadow: 0 0 18px rgba(255, 220, 130, 0.6); 
+  margin: 18px auto 0;
+  display: block;
+}
+
 
 .accordion-content { 
   max-height: 0; 
   overflow: hidden; 
   transition: max-height 0.5s ease;
+  margin-top: 6px;
 }
 
 .accordion.active .accordion-content { 
   max-height: 800px;
 }
 
+
 .accordion-title { 
-  cursor:pointer; 
+  cursor: pointer; 
   position: relative; 
-  padding-right:20px; 
-  margin-bottom:10px;
+  padding-right: 20px; 
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-align: left;
 }
 
 .accordion-title::after { 
-  content:"▶"; 
-  position:absolute; 
-  right:0; 
-  top:0; 
-  font-size:12px; 
+  content: "▶"; 
+  position: absolute; 
+  right: 0; 
+  top: 0; 
+  font-size: 10px; 
   transition: transform 0.3s ease; 
 }
 
 .accordion.active .accordion-title::after { 
-  content:"▼"; 
+  content: "▼"; 
 }
 
+
 .back-btn { 
-  margin:50px 0; 
-  padding:14px 26px; 
-  background:linear-gradient(45deg,#ffc107,#ffb300); 
-  border:none; 
-  color:#fffdf5; 
-  border-radius:40px; 
-  cursor:pointer; 
-  box-shadow:0 0 20px rgba(255,200,100,0.7); 
-  transition:0.3s; 
-  font-family:'Press Start 2P',cursive;
+  margin: 20px 0 40px; 
+  padding: 12px 22px; 
+  background: linear-gradient(45deg,#ffc107,#ffb300); 
+  border: none; 
+  color: #fff; 
+  border-radius: 40px; 
+  cursor: pointer; 
+  box-shadow: 0 0 18px rgba(255, 190, 100, 0.7); 
+  transition: 0.25s; 
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
 }
 
 .back-btn:hover { 
-  transform: scale(1.12); 
-  box-shadow:0 0 35px rgba(255,220,150,0.9);
+  transform: translateY(-2px) scale(1.06); 
+  box-shadow: 0 0 28px rgba(255,200,150,0.9);
 }
 </style>
 </head>
@@ -104,14 +140,23 @@ section img {
 </header>
 
 <main>
+
 <section class="intro">
-  <p>The Ember Drop is not just a freefall — it’s a moment of suspended fire. Rising like a glowing torch in the center of the park, this drop tower mixes fear and beauty into one breathtaking plunge. Each ride is a dance between gravity and flame.</p>
+  <p>
+    The Ember Drop is not just a freefall — it’s a moment of suspended fire. 
+    Rising like a glowing torch in the center of the park, this drop tower 
+    mixes fear and beauty into one breathtaking plunge.
+  </p>
 </section>
 
 <section class="accordion">
   <h2 class="accordion-title">Appearance and Structure</h2>
   <div class="accordion-content">
-    <p>The Ember Drop stands tall like a column of molten glass. Its frame glows from within, filled with flowing streams of light that twist upward in rhythmic waves. At its peak, the ride pauses for just a heartbeat — long enough for riders to feel weightless before the plunge begins.</p>
+    <p>
+      The Ember Drop stands tall like a column of molten glass. Its frame glows 
+      from within, filled with streams of twisting light. At its peak, the ride 
+      pauses for just a heartbeat — long enough for riders to feel weightless.
+    </p>
     <img src="../img/emberdrop-structure.jpg" alt="Ember Drop Structure">
   </div>
 </section>
@@ -119,14 +164,22 @@ section img {
 <section class="accordion">
   <h2 class="accordion-title">Material and Light</h2>
   <div class="accordion-content">
-    <p>The tower’s outer shell is a fusion of reflective steel and translucent crystal panels. During the day, it mirrors the clouds and sunlight; at night, it becomes a living flame, pulsing with orange, red, and violet tones. Inside, glowing energy lines trace the ride’s motion like veins of fire.</p>
+    <p>
+      The tower’s outer shell blends reflective steel with crystal panels. By day, 
+      it mirrors the sky; by night, it burns in orange and violet fire. Inside, 
+      thin veins of light trace the motion of the rising cabin.
+    </p>
   </div>
 </section>
 
 <section class="accordion">
   <h2 class="accordion-title">Rider Experience</h2>
   <div class="accordion-content">
-    <p>The seats form a circular ring facing outward, giving every rider a full panoramic view. A soft vibration hums through the seat as energy builds beneath you. Then — silence. A second later, you fall through a storm of color and light, the wind roaring past like a living flame.</p>
+    <p>
+      Riders sit in a circular ring facing outward. A soft vibration hums beneath 
+      the seat as the tower climbs. Then — silence. A breath later, the world 
+      drops away in a storm of wind and burning color.
+    </p>
     <img src="../img/emberdrop-ride.jpg" alt="Riders on The Ember Drop">
   </div>
 </section>
@@ -134,7 +187,11 @@ section img {
 <section class="accordion">
   <h2 class="accordion-title">Environment and Atmosphere</h2>
   <div class="accordion-content">
-    <p>Around the tower lies a shallow pool of reflective water, glowing softly with the tower’s fiery light. Thin mist rises from the surface, curling in the air like smoke. Each drop sends ripples across the pool, lighting it up in bursts of orange and gold — a firestorm reflected in water.</p>
+    <p>
+      The tower is surrounded by a shallow reflective pool. Each drop sends 
+      shimmering ripples of gold across the surface, turning the ground into a 
+      flickering lake of fire and light.
+    </p>
   </div>
 </section>
 
@@ -148,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
   accordions.forEach(acc => {
     const title = acc.querySelector('.accordion-title');
     title.addEventListener('click', () => {
-      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      accordions.forEach(a => { if (a !== acc) a.classList.remove('active'); });
       acc.classList.toggle('active');
     });
   });

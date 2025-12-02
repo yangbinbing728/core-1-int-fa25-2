@@ -1,138 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amusement Park</title>
+  <title>Playground</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #f4f1ec;
+      height: 100%;
+      font-family: sans-serif;
+    }
 
-  
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+    
+    .top-left {
+      position: fixed;
+      top: 16px;
+      left: 20px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      z-index: 900;
+    }
 
+ 
+    .top-right {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      z-index: 900;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    .top-right a {
+      text-decoration: none;
+      color: #222;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
 
-  <link rel="stylesheet" href="styles.css" />
+    .top-right a:hover {
+      opacity: 1;
+    }
+
+    
+    .center-wrap {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 900;
+    }
+
+    .center-title {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      position: relative;
+
+      
+      background: linear-gradient(90deg, #f0c9ff, #ffffff, #ffd6a5, #f0c9ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow-scan 3s linear infinite;
+    }
+
+    @keyframes glow-scan {
+      0% {
+        background-position: -100% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .center-button {
+      display: inline-block;
+      margin-top: 4px;
+      background: black;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      z-index: 999;
+    }
+
+    .center-button:hover {
+      opacity: 0.9;
+    }
+
+   
+    .object {
+      position: absolute;
+      cursor: grab;
+      user-select: none;
+      width: 400px;
+      z-index: 2;
+    }
+
+    #confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+   
+    .confetti-piece {
+      position: absolute;
+      width: 16px;  
+      height: 40px;  
+      opacity: 0.85;
+      animation: cuteFloat ease-in infinite;
+    }
+
+   
+    @keyframes cuteFloat {
+      0% {
+        transform: translateY(-120vh) translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(0vh) translateX(24px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(120vh) translateX(-24px) rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Amusement Park</h1>
-  <p class="author">Binbing Yang</p>
-</header>
 
-<section class="intro">
-  <p>
-    This is a digital playground full of creativity and interaction.
-    Click, scroll, or drag to start your immersive journey.
-    Each page holds a different surprise—just like a real amusement park—waiting to be discovered.
-    Ready to begin? Let the adventure start now!
-  </p>
-</section>
+  <div id="confetti"></div>
 
-<main class="app-grid">
+
+  <div class="top-left">
+    binbing yang
+  </div>
+
+
+  <nav class="top-right">
+    <a href="index2.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="comments.html">Contact Us</a>
+  </nav>
+
+  
+  <div class="center-wrap">
+    <div class="center-title">Amusement Park</div>
+    <button class="center-button" onclick="goToEntries()">Learn More</button>
+  </div>
+
+  <script>
+  
+  const images = [
+    "harmonic-collection/img/IMG_0403.PNG",
+    "harmonic-collection/img/IMG_0404.PNG",
+    "harmonic-collection/img/IMG_0405.PNG",
+    "harmonic-collection/img/IMG_0410.PNG",
+    "harmonic-collection/img/IMG_0411.PNG",
+    "harmonic-collection/img/IMG_0412.PNG",
+    "harmonic-collection/img/IMG_0413.PNG",
+    "harmonic-collection/img/IMG_0417.PNG",
+    "harmonic-collection/img/IMG_0418.PNG",
+    "harmonic-collection/img/IMG_0419.PNG"
+  ];
+
+  const hitSound = new Audio("harmonic-collection/img/hit.mp3");
+
+  const objects = [];
+
+  images.forEach((src) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.classList.add("object");
+
+    img.style.width = Math.random() * 200 + 280 + "px";
+
+    let x = Math.random() * (window.innerWidth - 200);
+    let y = -Math.random() * 600;
+    let speed = Math.random() * 3 + 2;
+    let hasHit = false;
+
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+    img.style.transform = `rotate(${Math.random() * 50 - 25}deg)`;
+
+    document.body.appendChild(img);
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    img.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      offsetX = e.clientX - img.offsetLeft;
+      offsetY = e.clientY - img.offsetTop;
+      img.style.cursor = "grabbing";
+      img.style.zIndex = 1000;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        x = e.clientX - offsetX;
+        y = e.clientY - offsetY;
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      img.style.cursor = "grab";
+      img.style.zIndex = 2;
+    });
+
+    function fall() {
+      if (!isDragging) {
+        y += speed;
+
+        const ground = window.innerHeight - img.offsetHeight - 20;
+
+        if (y > ground) {
+          y = ground;
+
+          if (!hasHit) {
+            hitSound.currentTime = 0;
+            hitSound.play();
+            hasHit = true;
+
+            img.animate(
+              [
+                { transform: "translateX(0) rotate(0deg)" },
+                { transform: "translateX(-6px) rotate(-1deg)" },
+                { transform: "translateX(6px) rotate(1deg)" },
+                { transform: "translateX(0) rotate(0deg)" }
+              ],
+              { duration: 150 }
+            );
+          }
+        }
+
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+      }
+
+      requestAnimationFrame(fall);
+    }
+
+    fall();
+    objects.push(img);
+  });
+
+  function goToEntries() {
+    window.location.href = "index2.html";
+  }
 
  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-1.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/IMG_0217-2.JPG" alt="Extreme Roller Coaster" />
-      </div>
-    </a>
-    <p class="entry-title">Extreme Roller Coaster</p>
-  </div>
+  const confettiContainer = document.getElementById("confetti");
 
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-2.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/ -5.jpg" alt="The Luminous Wheel Zone" />
-      </div>
-    </a>
-    <p class="entry-title">The Luminous Wheel Zone</p>
-  </div>
+  const colors = [
+    "#FFB3C6",
+    "#FFDEE2",
+    "#B5EAD7",
+    "#C7CEEA",
+    "#FFDAC1"
+  ];
 
- 
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-3.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/Bumper Cars.jpg" alt="The Spark Arena" />
-      </div>
-    </a>
-    <p class="entry-title">The Spark Arena</p>
-  </div>
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement("div");
+    piece.classList.add("confetti-piece");
 
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-4.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/ -6.jpg" alt="The Celestial Carousel" />
-      </div>
-    </a>
-    <p class="entry-title">The Celestial Carousel</p>
-  </div>
+    piece.style.left = Math.random() * 100 + "vw";
 
- 
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-5.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/The Flume Zoom Ride at Opryland USA.jpg" alt="The Aqua Rush" />
-      </div>
-    </a>
-    <p class="entry-title">The Aqua Rush</p>
-  </div>
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-6.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/image-6.jpg" alt="The Neon Clash" />
-      </div>
-    </a>
-    <p class="entry-title">The Neon Clash</p>
-  </div>
+    const duration = 8 + Math.random() * 6;
+    piece.style.animationDuration = duration + "s";
 
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-7.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/ -9.jpg" alt="The Ember Drop" />
-      </div>
-    </a>
-    <p class="entry-title">The Ember Drop</p>
-  </div>
+    piece.style.animationDelay = -Math.random() * duration + "s";
 
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-8.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/ -10.jpg" alt="Solar Spiral Swing" />
-      </div>
-    </a>
-    <p class="entry-title">Moonlight Carousel</p>
-  </div>
-
- 
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-9.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/ -11.jpg" alt="The Hollow Lantern Mansion" />
-      </div>
-    </a>
-    <p class="entry-title">The Hollow Lantern Mansion</p>
-  </div>
-
-  
-  <div class="entry-item">
-    <a href="harmonic-collection/enties/entry-10.html" class="app-icon bubble">
-      <div class="bubble-img">
-        <img src="harmonic-collection/img/Note to self_ remember NOT ride the teacups with a hangover!.jpg" alt="The Ember Drop" />
-      </div>
-    </a>
-    <p class="entry-title">Twilight Tea Cups</p>
-  </div>
-
-</main>
+    confettiContainer.appendChild(piece);
+  }
+  </script>
 
 </body>
 </html>

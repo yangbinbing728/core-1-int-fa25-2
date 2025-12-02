@@ -5,97 +5,152 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Aqua Rush</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <style>
+/* -------- GLOBAL -------- */
 body {
   margin: 0;
   font-family: 'Press Start 2P', cursive;
   background: linear-gradient(180deg, #a8e6a3, #7ed957, #4caf50);
-  color: #fffdf5;
+  color: #fffef5;
   text-align: center;
 }
 
-header h1 { 
-  font-size:28px; 
-  margin-top:40px; 
-  text-shadow:0 0 10px #d0ffd0,0 0 20px #90ee90;
+/* -------- HEADER-style INTRO -------- */
+header, .intro {
+  padding: 32px 16px 0;
 }
 
-.subtitle { 
-  font-size:10px; 
-  margin-top:12px; 
-  opacity:0.85;
+h1 {
+  font-size: 24px;
+  margin: 0;
+  text-shadow: 0 0 8px #caffc8, 0 0 16px #9cff9c;
 }
 
-main { 
-  width:80%; 
-  margin:40px auto;
+.subtitle {
+  font-size: 10px;
+  margin-top: 14px;
+  opacity: 0.9;
 }
 
-section { 
-  margin-bottom:30px; 
-  padding:20px; 
-  background: rgba(255,255,255,0.08); 
-  border-radius:24px; 
-  box-shadow:0 0 25px rgba(120,255,120,0.35);
+.intro p {
+  font-size: 10px;
+  max-width: 60ch;
+  line-height: 1.7;
+  margin: 14px auto 0;
 }
 
-section img { 
-  width:80%; 
-  max-width:550px; 
-  border-radius:22px; 
-  box-shadow:0 0 25px rgba(180,255,180,0.6); 
-  margin-top:25px;
+/* -------- MAIN -------- */
+main {
+  width: 90%;
+  max-width: 900px;
+  margin: 32px auto 40px;
 }
 
-.accordion-content { 
-  max-height: 0; 
-  overflow: hidden; 
+section {
+  margin-bottom: 24px;
+  padding: 18px 18px 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(140,255,140,0.35);
+}
+
+section p {
+  line-height: 1.7;
+  font-size: 10px;
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: left;
+}
+
+section h2 {
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* -------- IMAGES -------- */
+section img {
+  width: 80%;
+  max-width: 520px;
+  border-radius: 18px;
+  box-shadow: 0 0 18px rgba(180,255,180,0.6);
+  margin: 18px auto 0;
+  display: block;
+}
+
+/* -------- ACCORDION -------- */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
   transition: max-height 0.5s ease;
+  margin-top: 6px;
 }
 
-.accordion.active .accordion-content { 
+.accordion.active .accordion-content {
   max-height: 800px;
 }
 
-.accordion-title { 
-  cursor:pointer; 
-  position: relative; 
-  padding-right:20px; 
-  margin-bottom:10px;
+.accordion-title {
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  text-align: left;
 }
 
-.accordion-title::after { 
-  content:"▶"; 
-  position:absolute; 
-  right:0; 
-  top:0; 
-  font-size:12px; 
-  transition: transform 0.3s ease; 
+.accordion-title::after {
+  content: "▶";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 10px;
 }
 
-.accordion.active .accordion-title::after { 
-  content:"▼"; 
+.accordion.active .accordion-title::after {
+  content: "▼";
 }
 
-.back-btn { 
-  margin:50px 0; 
-  padding:14px 26px; 
-  background:linear-gradient(45deg,#7ed957,#4caf50); 
-  border:none; 
-  color:#fffdf5; 
-  border-radius:40px; 
-  cursor:pointer; 
-  box-shadow:0 0 20px rgba(120,255,120,0.7); 
-  transition:0.3s; 
-  font-family:'Press Start 2P',cursive;
+/* -------- VIDEO -------- */
+.video-title {
+  font-size: 12px;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
-.back-btn:hover { 
-  transform: scale(1.12); 
-  box-shadow:0 0 35px rgba(180,255,180,0.9);
+.video-frame iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 320px;
+  border-radius: 16px;
+  border: none;
+  margin-top: 10px;
+  box-shadow: 0 0 18px rgba(150,255,150,0.6);
+}
+
+/* -------- BACK BUTTON -------- */
+.back-btn {
+  margin: 20px 0 40px;
+  padding: 12px 22px;
+  background: linear-gradient(45deg,#7ed957,#4caf50);
+  border: none;
+  color: #fffdf5;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(150,255,150,0.7);
+  transition: 0.25s;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 0 28px rgba(200,255,200,0.9);
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -104,29 +159,61 @@ section img {
 </header>
 
 <main>
+
+<!-- INTRO -->
 <section class="intro">
-  <p>The Aqua Rush — Ride through a glowing river of light and motion, where crystal waves rise and fall beneath neon skies. Every drop sends a burst of color into the air, every turn blurs the line between thrill and dream — a rush of water, wind, and pure exhilaration.</p>
+  <p>
+    The Aqua Rush flows like a glowing river through the heart of the park.  
+    Each drop bursts into light, each turn blends water, wind, and speed into a rush of pure exhilaration.
+  </p>
 </section>
 
+<!-- ACCORDION 1 -->
 <section class="accordion">
   <h2 class="accordion-title">Appearance and Structure</h2>
   <div class="accordion-content">
-    <p>The Aqua Rush winds through the lower valley of the park like a living river of glass. Its track glows faintly beneath the water, curving between cliffs of light and mist. Transparent bridges rise and twist above, allowing visitors to watch as the boats shoot past in a shimmer of spray. The main drop towers like a waterfall of light — tall, sleek, and endlessly flowing.</p>
+    <p>
+      The Aqua Rush winds through the lower valley like a living river of glass.  
+      Underwater lights glow beneath the track, and mist rises from cliffs of refracted color.  
+      The main waterfall drop towers like a shimmering ribbon of liquid light.
+    </p>
     <img src="../img/The Flume Zoom Ride at Opryland USA.jpg" alt="Aqua Rush">
   </div>
 </section>
 
+<!-- ACCORDION 2 -->
 <section class="accordion">
   <h2 class="accordion-title">Cabin Design</h2>
   <div class="accordion-content">
-    <p>Inside the boats, the seats are smooth and curved, designed to cradle the rider as the ride speeds forward. A soft hum builds before every drop, rising into a rush of wind and water that fills the air. Mist brushes against your face, cool and sharp, while the scent of ozone and riverlight lingers in your breath. The moments between climbs and falls feel almost weightless — like floating between excitement and calm.</p>
+    <p>
+      Riders sit inside smooth, curved boats designed for speed and lift.  
+      Before each drop, a soft hum builds — followed by a splash of cool mist.  
+      The ride feels weightless, like drifting between excitement and calm.
+    </p>
   </div>
 </section>
 
+<!-- ACCORDION 3 -->
 <section class="accordion">
   <h2 class="accordion-title">Environment and Atmosphere</h2>
   <div class="accordion-content">
-    <p>Around the river, the air is thick with drifting mist. Holographic fish glide through it, leaving trails of light like swimming comets. Crystal rocks rise from the ground, their edges refracting the moving colors of the ride. Soft blue lights ripple through the fog, guiding the path like an underwater aurora.</p>
+    <p>
+      Around the river, holographic fish glide through drifting mist like swimming comets.  
+      Crystal rocks rise from the ground, refracting the moving colors of the ride.  
+      Blue lights ripple through the fog, creating an underwater aurora.
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <h2 class="video-title">Ride Preview</h2>
+  <div class="video-frame">
+    <iframe 
+      src="https://www.youtube.com/embed/L-lUcQkMOC0"
+      title="Water Ride POV"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen"
+      allowfullscreen></iframe>
   </div>
 </section>
 
@@ -136,11 +223,11 @@ section img {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const accordions = document.querySelectorAll('.accordion');
-  accordions.forEach(acc => {
+  const accList = document.querySelectorAll('.accordion');
+  accList.forEach(acc => {
     const title = acc.querySelector('.accordion-title');
     title.addEventListener('click', () => {
-      accordions.forEach(a => { if(a!==acc){a.classList.remove('active');} });
+      accList.forEach(a => { if(a !== acc){ a.classList.remove('active'); }});
       acc.classList.toggle('active');
     });
   });
